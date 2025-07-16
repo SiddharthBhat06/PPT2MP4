@@ -4,7 +4,14 @@ import time
 import requests
 import streamlit as st
 from msal import PublicClientApplication
-import win32com.client
+import sys
+
+if sys.platform == "win32":
+    import win32com.client
+    import pythoncom
+else:
+    # Handle or skip Windows-specific functionality
+    pass
 import pythoncom
 # Environment variables for Azure
 CLIENT_ID = os.getenv("AZURE_CLIENT_ID")
